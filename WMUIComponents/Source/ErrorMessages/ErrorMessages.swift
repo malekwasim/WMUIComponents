@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ErrorMessages: String {
+public enum ErrorMessages: String {
     case socialSecurity = "Please enter proper social security number"
     case validEmailAddress = "Please enter valid email address"
     case homePhoneNumber = "Please enter proper home phone number"

@@ -9,7 +9,7 @@
 import UIKit
 
 
-enum WMTextFieldType {
+public enum WMTextFieldType {
     case text
     case phone
     case email
@@ -19,7 +19,7 @@ enum WMTextFieldType {
     case number
 }
 
-protocol WMTextFieldDelegate: AnyObject {
+public protocol WMTextFieldDelegate: AnyObject {
     func textfieldDidChange(_ textfield: WMTextField)
     func textfieldDidEnd(_ textfield: WMTextField)
 }

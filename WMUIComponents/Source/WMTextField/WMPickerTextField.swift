@@ -7,10 +7,10 @@
 //
 
 import UIKit
-protocol WMPickerTextFieldDelegate: AnyObject {
+public protocol WMPickerTextFieldDelegate: AnyObject {
     func pickerDidSelectedAtIndex(_ index: Int, textfield: WMPickerTextField)
 }
-class WMPickerTextField: WMTextField {
+public class WMPickerTextField: WMTextField {
     var options =  [String]()
     var selectedIndex = 0
     var selectedOption = ""

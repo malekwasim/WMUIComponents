@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WMStateTextField: UIView {
+public class WMStateTextField: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var txtState: WMTextField!
     @IBOutlet weak var txtCity: WMTextField!

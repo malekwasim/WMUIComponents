@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WMYearTextField: WMTextField {
+public class WMYearTextField: WMTextField {
     var years =  [String]()
     var selectedIndex: Int?
 

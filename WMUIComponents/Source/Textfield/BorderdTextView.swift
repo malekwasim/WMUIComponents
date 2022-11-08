@@ -2,7 +2,7 @@
 
 import UIKit
 
-class BorderdTextView: UITextView,UITextViewDelegate {
+public class BorderdTextView: UITextView,UITextViewDelegate {
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5);
     @IBInspectable var borderColor:UIColor = .platinum
     let defaultColor = UIColor.platinum

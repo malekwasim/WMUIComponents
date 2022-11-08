@@ -40,7 +40,7 @@ class PopOverViewController: UIViewController {
     @IBOutlet var btnRetake: UIButton!
     @IBOutlet var btnDelete: UIButton!
     var isAscending : Bool = true
-    var titleIs: String = "Select from otions"
+    var titleIs: String = "Select from options"
     var isFullScreen = false
     
     override func viewDidLoad() {

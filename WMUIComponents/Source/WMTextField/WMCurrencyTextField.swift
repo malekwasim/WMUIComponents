@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WMCurrencyTextField: WMTextField {
+public class WMCurrencyTextField: WMTextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupTextField()

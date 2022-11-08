@@ -7,10 +7,10 @@
 //
 
 import UIKit
-protocol WMDateTextFieldDelegate: AnyObject {
+public protocol WMDateTextFieldDelegate: AnyObject {
     func dateDidSelected(_ textfield: WMDateTextField, date: Date)
 }
-class WMDateTextField: WMTextField {
+public class WMDateTextField: WMTextField {
     var maximumDate:Date? {
         didSet {
             textField.maximumDate = maximumDate

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class WMNumberTextField: WMTextField {
+public class WMNumberTextField: WMTextField {
     var maxDigit = 0
     override init(frame: CGRect) {
         super.init(frame: frame)
