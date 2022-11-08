@@ -125,14 +125,6 @@
 		9AA051E6291AAA1000245C25 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9AA051EB291AAA7000245C25 /* Colors */,
-				9AA051ED291AAA7000245C25 /* DateFormat */,
-				9AA051FD291AAA7000245C25 /* ErrorMessages */,
-				9AA051FF291AAA7000245C25 /* Extension */,
-				9AA051FA291AAA7000245C25 /* KLStates */,
-				9AA05203291AAA7000245C25 /* WMTextField */,
-				9AA051F7291AAA7000245C25 /* PopOver */,
-				9AA051EF291AAA7000245C25 /* Textfield */,
 				9AA051E8291AAA6100245C25 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -141,6 +133,14 @@
 		9AA051E7291AAA2200245C25 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9AA051EB291AAA7000245C25 /* Colors */,
+				9AA051ED291AAA7000245C25 /* DateFormat */,
+				9AA051FD291AAA7000245C25 /* ErrorMessages */,
+				9AA051FF291AAA7000245C25 /* Extension */,
+				9AA051FA291AAA7000245C25 /* KLStates */,
+				9AA05203291AAA7000245C25 /* WMTextField */,
+				9AA051F7291AAA7000245C25 /* PopOver */,
+				9AA051EF291AAA7000245C25 /* Textfield */,
 			);
 			path = Source;
 			sourceTree = "<group>";
