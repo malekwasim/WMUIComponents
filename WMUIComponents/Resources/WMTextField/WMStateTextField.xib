@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WMStateTextField" customModule="WMUIComponents" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="pc6-1t-zld"/>
+                <outlet property="txtCity" destination="5ej-dz-ad1" id="sSW-6s-Lko"/>
+                <outlet property="txtState" destination="DB8-w7-vBR" id="sge-Zr-8kN"/>
+                <outlet property="txtZip" destination="9M3-ya-8yS" id="bXC-J1-ZAc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="P3R-3I-gij">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DB8-w7-vBR" customClass="WMTextField" customModule="WMUIComponents" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="100"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="State"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ej-dz-ad1" customClass="WMTextField" customModule="WMUIComponents" customModuleProvider="target">
+                            <rect key="frame" x="140.5" y="0.0" width="133" height="100"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="City"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9M3-ya-8yS" customClass="WMTextField" customModule="WMUIComponents" customModuleProvider="target">
+                            <rect key="frame" x="281.5" y="0.0" width="132.5" height="100"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Zip"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="P3R-3I-gij" secondAttribute="bottom" id="Dav-7a-oZe"/>
+                <constraint firstItem="P3R-3I-gij" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NGJ-42-ndv"/>
+                <constraint firstItem="P3R-3I-gij" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lT2-r5-J6P"/>
+                <constraint firstAttribute="trailing" secondItem="P3R-3I-gij" secondAttribute="trailing" id="vuW-w6-0Xd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="87" y="90"/>
+        </view>
+    </objects>
+</document>

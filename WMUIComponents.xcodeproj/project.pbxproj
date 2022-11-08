@@ -8,22 +8,76 @@
 
 /* Begin PBXBuildFile section */
 		9AA051D1291AA9B100245C25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051D0291AA9B100245C25 /* AppDelegate.swift */; };
-		9AA051D3291AA9B100245C25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051D2291AA9B100245C25 /* SceneDelegate.swift */; };
 		9AA051D5291AA9B100245C25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051D4291AA9B100245C25 /* ViewController.swift */; };
 		9AA051D8291AA9B100245C25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051D6291AA9B100245C25 /* Main.storyboard */; };
 		9AA051DA291AA9B400245C25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051D9291AA9B400245C25 /* Assets.xcassets */; };
 		9AA051DD291AA9B400245C25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051DB291AA9B400245C25 /* LaunchScreen.storyboard */; };
+		9AA051E9291AAA6100245C25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051E8291AAA6100245C25 /* Assets.xcassets */; };
+		9AA0520E291AAA7000245C25 /* WMColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051EC291AAA7000245C25 /* WMColors.swift */; };
+		9AA0520F291AAA7000245C25 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051EE291AAA7000245C25 /* DateFormat.swift */; };
+		9AA05210291AAA7000245C25 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F0291AAA7000245C25 /* PickerTextField.swift */; };
+		9AA05211291AAA7000245C25 /* BorderdPickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F1291AAA7000245C25 /* BorderdPickerTextField.swift */; };
+		9AA05212291AAA7000245C25 /* EdgedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F2291AAA7000245C25 /* EdgedTextField.swift */; };
+		9AA05213291AAA7000245C25 /* BorderdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F3291AAA7000245C25 /* BorderdTextField.swift */; };
+		9AA05214291AAA7000245C25 /* BorderdTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F4291AAA7000245C25 /* BorderdTextView.swift */; };
+		9AA05215291AAA7000245C25 /* BorderdDatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F5291AAA7000245C25 /* BorderdDatePickerTextField.swift */; };
+		9AA05216291AAA7000245C25 /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F6291AAA7000245C25 /* DatePickerTextField.swift */; };
+		9AA05217291AAA7000245C25 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051F8291AAA7000245C25 /* Popup.storyboard */; };
+		9AA05218291AAA7000245C25 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F9291AAA7000245C25 /* PopOverViewController.swift */; };
+		9AA05219291AAA7000245C25 /* City.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051FB291AAA7000245C25 /* City.json */; };
+		9AA0521A291AAA7000245C25 /* USStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051FC291AAA7000245C25 /* USStates.swift */; };
+		9AA0521B291AAA7000245C25 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051FE291AAA7000245C25 /* ErrorMessages.swift */; };
+		9AA0521C291AAA7000245C25 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA05200291AAA7000245C25 /* UIView.swift */; };
+		9AA0521D291AAA7000245C25 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA05201291AAA7000245C25 /* String.swift */; };
+		9AA0521E291AAA7000245C25 /* UILable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA05202291AAA7000245C25 /* UILable.swift */; };
+		9AA0521F291AAA7000245C25 /* WMCurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA05204291AAA7000245C25 /* WMCurrencyTextField.swift */; };
+		9AA05220291AAA7000245C25 /* WMDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA05205291AAA7000245C25 /* WMDateTextField.swift */; };
+		9AA05221291AAA7000245C25 /* WMStateTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA05206291AAA7000245C25 /* WMStateTextField.xib */; };
+		9AA05222291AAA7000245C25 /* WMNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA05207291AAA7000245C25 /* WMNumberTextField.swift */; };
+		9AA05223291AAA7000245C25 /* WMTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA05208291AAA7000245C25 /* WMTextField.xib */; };
+		9AA05224291AAA7000245C25 /* WMPickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA05209291AAA7000245C25 /* WMPickerTextField.swift */; };
+		9AA05225291AAA7000245C25 /* WMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0520A291AAA7000245C25 /* WMTextField.swift */; };
+		9AA05226291AAA7000245C25 /* WMYearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0520B291AAA7000245C25 /* WMYearTextField.swift */; };
+		9AA05227291AAA7000245C25 /* WMStateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0520C291AAA7000245C25 /* WMStateTextField.swift */; };
+		9AA05228291AAA7000245C25 /* WMPhoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0520D291AAA7000245C25 /* WMPhoneTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9AA051CD291AA9B100245C25 /* WMUIComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WMUIComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA051D0291AA9B100245C25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9AA051D2291AA9B100245C25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9AA051D4291AA9B100245C25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9AA051D7291AA9B100245C25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AA051D9291AA9B400245C25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AA051DC291AA9B400245C25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AA051DE291AA9B400245C25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AA051E8291AAA6100245C25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9AA051EC291AAA7000245C25 /* WMColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMColors.swift; sourceTree = "<group>"; };
+		9AA051EE291AAA7000245C25 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		9AA051F0291AAA7000245C25 /* PickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
+		9AA051F1291AAA7000245C25 /* BorderdPickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderdPickerTextField.swift; sourceTree = "<group>"; };
+		9AA051F2291AAA7000245C25 /* EdgedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgedTextField.swift; sourceTree = "<group>"; };
+		9AA051F3291AAA7000245C25 /* BorderdTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderdTextField.swift; sourceTree = "<group>"; };
+		9AA051F4291AAA7000245C25 /* BorderdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderdTextView.swift; sourceTree = "<group>"; };
+		9AA051F5291AAA7000245C25 /* BorderdDatePickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderdDatePickerTextField.swift; sourceTree = "<group>"; };
+		9AA051F6291AAA7000245C25 /* DatePickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
+		9AA051F8291AAA7000245C25 /* Popup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		9AA051F9291AAA7000245C25 /* PopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
+		9AA051FB291AAA7000245C25 /* City.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = City.json; sourceTree = "<group>"; };
+		9AA051FC291AAA7000245C25 /* USStates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USStates.swift; sourceTree = "<group>"; };
+		9AA051FE291AAA7000245C25 /* ErrorMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
+		9AA05200291AAA7000245C25 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		9AA05201291AAA7000245C25 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9AA05202291AAA7000245C25 /* UILable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILable.swift; sourceTree = "<group>"; };
+		9AA05204291AAA7000245C25 /* WMCurrencyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMCurrencyTextField.swift; sourceTree = "<group>"; };
+		9AA05205291AAA7000245C25 /* WMDateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMDateTextField.swift; sourceTree = "<group>"; };
+		9AA05206291AAA7000245C25 /* WMStateTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WMStateTextField.xib; sourceTree = "<group>"; };
+		9AA05207291AAA7000245C25 /* WMNumberTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMNumberTextField.swift; sourceTree = "<group>"; };
+		9AA05208291AAA7000245C25 /* WMTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WMTextField.xib; sourceTree = "<group>"; };
+		9AA05209291AAA7000245C25 /* WMPickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMPickerTextField.swift; sourceTree = "<group>"; };
+		9AA0520A291AAA7000245C25 /* WMTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMTextField.swift; sourceTree = "<group>"; };
+		9AA0520B291AAA7000245C25 /* WMYearTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMYearTextField.swift; sourceTree = "<group>"; };
+		9AA0520C291AAA7000245C25 /* WMStateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMStateTextField.swift; sourceTree = "<group>"; };
+		9AA0520D291AAA7000245C25 /* WMPhoneTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMPhoneTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +110,9 @@
 		9AA051CF291AA9B100245C25 /* WMUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				9AA051E7291AAA2200245C25 /* Source */,
+				9AA051E6291AAA1000245C25 /* Resources */,
 				9AA051D0291AA9B100245C25 /* AppDelegate.swift */,
-				9AA051D2291AA9B100245C25 /* SceneDelegate.swift */,
 				9AA051D4291AA9B100245C25 /* ViewController.swift */,
 				9AA051D6291AA9B100245C25 /* Main.storyboard */,
 				9AA051D9291AA9B400245C25 /* Assets.xcassets */,
@@ -65,6 +120,112 @@
 				9AA051DE291AA9B400245C25 /* Info.plist */,
 			);
 			path = WMUIComponents;
+			sourceTree = "<group>";
+		};
+		9AA051E6291AAA1000245C25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9AA051EB291AAA7000245C25 /* Colors */,
+				9AA051ED291AAA7000245C25 /* DateFormat */,
+				9AA051FD291AAA7000245C25 /* ErrorMessages */,
+				9AA051FF291AAA7000245C25 /* Extension */,
+				9AA051FA291AAA7000245C25 /* KLStates */,
+				9AA05203291AAA7000245C25 /* WMTextField */,
+				9AA051F7291AAA7000245C25 /* PopOver */,
+				9AA051EF291AAA7000245C25 /* Textfield */,
+				9AA051E8291AAA6100245C25 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9AA051E7291AAA2200245C25 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		9AA051EB291AAA7000245C25 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				9AA051EC291AAA7000245C25 /* WMColors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		9AA051ED291AAA7000245C25 /* DateFormat */ = {
+			isa = PBXGroup;
+			children = (
+				9AA051EE291AAA7000245C25 /* DateFormat.swift */,
+			);
+			path = DateFormat;
+			sourceTree = "<group>";
+		};
+		9AA051EF291AAA7000245C25 /* Textfield */ = {
+			isa = PBXGroup;
+			children = (
+				9AA051F0291AAA7000245C25 /* PickerTextField.swift */,
+				9AA051F1291AAA7000245C25 /* BorderdPickerTextField.swift */,
+				9AA051F2291AAA7000245C25 /* EdgedTextField.swift */,
+				9AA051F3291AAA7000245C25 /* BorderdTextField.swift */,
+				9AA051F4291AAA7000245C25 /* BorderdTextView.swift */,
+				9AA051F5291AAA7000245C25 /* BorderdDatePickerTextField.swift */,
+				9AA051F6291AAA7000245C25 /* DatePickerTextField.swift */,
+			);
+			path = Textfield;
+			sourceTree = "<group>";
+		};
+		9AA051F7291AAA7000245C25 /* PopOver */ = {
+			isa = PBXGroup;
+			children = (
+				9AA051F8291AAA7000245C25 /* Popup.storyboard */,
+				9AA051F9291AAA7000245C25 /* PopOverViewController.swift */,
+			);
+			path = PopOver;
+			sourceTree = "<group>";
+		};
+		9AA051FA291AAA7000245C25 /* KLStates */ = {
+			isa = PBXGroup;
+			children = (
+				9AA051FB291AAA7000245C25 /* City.json */,
+				9AA051FC291AAA7000245C25 /* USStates.swift */,
+			);
+			path = KLStates;
+			sourceTree = "<group>";
+		};
+		9AA051FD291AAA7000245C25 /* ErrorMessages */ = {
+			isa = PBXGroup;
+			children = (
+				9AA051FE291AAA7000245C25 /* ErrorMessages.swift */,
+			);
+			path = ErrorMessages;
+			sourceTree = "<group>";
+		};
+		9AA051FF291AAA7000245C25 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9AA05200291AAA7000245C25 /* UIView.swift */,
+				9AA05201291AAA7000245C25 /* String.swift */,
+				9AA05202291AAA7000245C25 /* UILable.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9AA05203291AAA7000245C25 /* WMTextField */ = {
+			isa = PBXGroup;
+			children = (
+				9AA05204291AAA7000245C25 /* WMCurrencyTextField.swift */,
+				9AA05205291AAA7000245C25 /* WMDateTextField.swift */,
+				9AA0520C291AAA7000245C25 /* WMStateTextField.swift */,
+				9AA05206291AAA7000245C25 /* WMStateTextField.xib */,
+				9AA05207291AAA7000245C25 /* WMNumberTextField.swift */,
+				9AA0520A291AAA7000245C25 /* WMTextField.swift */,
+				9AA05208291AAA7000245C25 /* WMTextField.xib */,
+				9AA05209291AAA7000245C25 /* WMPickerTextField.swift */,
+				9AA0520B291AAA7000245C25 /* WMYearTextField.swift */,
+				9AA0520D291AAA7000245C25 /* WMPhoneTextField.swift */,
+			);
+			path = WMTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +285,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA05223291AAA7000245C25 /* WMTextField.xib in Resources */,
 				9AA051DD291AA9B400245C25 /* LaunchScreen.storyboard in Resources */,
 				9AA051DA291AA9B400245C25 /* Assets.xcassets in Resources */,
+				9AA05221291AAA7000245C25 /* WMStateTextField.xib in Resources */,
+				9AA051E9291AAA6100245C25 /* Assets.xcassets in Resources */,
 				9AA051D8291AA9B100245C25 /* Main.storyboard in Resources */,
+				9AA05219291AAA7000245C25 /* City.json in Resources */,
+				9AA05217291AAA7000245C25 /* Popup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +303,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA0521B291AAA7000245C25 /* ErrorMessages.swift in Sources */,
+				9AA05211291AAA7000245C25 /* BorderdPickerTextField.swift in Sources */,
+				9AA05225291AAA7000245C25 /* WMTextField.swift in Sources */,
+				9AA05226291AAA7000245C25 /* WMYearTextField.swift in Sources */,
+				9AA0521E291AAA7000245C25 /* UILable.swift in Sources */,
+				9AA05222291AAA7000245C25 /* WMNumberTextField.swift in Sources */,
+				9AA05214291AAA7000245C25 /* BorderdTextView.swift in Sources */,
+				9AA05216291AAA7000245C25 /* DatePickerTextField.swift in Sources */,
+				9AA05212291AAA7000245C25 /* EdgedTextField.swift in Sources */,
+				9AA0520E291AAA7000245C25 /* WMColors.swift in Sources */,
+				9AA05210291AAA7000245C25 /* PickerTextField.swift in Sources */,
+				9AA0521A291AAA7000245C25 /* USStates.swift in Sources */,
+				9AA05224291AAA7000245C25 /* WMPickerTextField.swift in Sources */,
+				9AA05213291AAA7000245C25 /* BorderdTextField.swift in Sources */,
 				9AA051D5291AA9B100245C25 /* ViewController.swift in Sources */,
+				9AA05220291AAA7000245C25 /* WMDateTextField.swift in Sources */,
+				9AA0521F291AAA7000245C25 /* WMCurrencyTextField.swift in Sources */,
+				9AA0521C291AAA7000245C25 /* UIView.swift in Sources */,
+				9AA05227291AAA7000245C25 /* WMStateTextField.swift in Sources */,
+				9AA05218291AAA7000245C25 /* PopOverViewController.swift in Sources */,
+				9AA0520F291AAA7000245C25 /* DateFormat.swift in Sources */,
+				9AA05228291AAA7000245C25 /* WMPhoneTextField.swift in Sources */,
+				9AA05215291AAA7000245C25 /* BorderdDatePickerTextField.swift in Sources */,
+				9AA0521D291AAA7000245C25 /* String.swift in Sources */,
 				9AA051D1291AA9B100245C25 /* AppDelegate.swift in Sources */,
-				9AA051D3291AA9B100245C25 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
