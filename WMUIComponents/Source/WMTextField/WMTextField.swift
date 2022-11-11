@@ -1,10 +1,4 @@
-//
-//  KLTextField.swift
-//  KinderLink
-//
-//  Created by Wasim on 30/04/20.
-//  Copyright © 2020 Diptesh Patel. All rights reserved.
-//
+
 
 import UIKit
 

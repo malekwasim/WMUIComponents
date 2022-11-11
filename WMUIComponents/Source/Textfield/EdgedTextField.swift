@@ -1,10 +1,4 @@
-//
-//  EdgedTextField.swift
-//  KinderKastle
-//
-//  Created by Diptesh Patel on 17/12/15.
-//  Copyright © 2015 Jigar Shah. All rights reserved.
-//
+
 
 import UIKit
 

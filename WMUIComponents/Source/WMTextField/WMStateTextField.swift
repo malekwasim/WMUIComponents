@@ -1,10 +1,4 @@
-//
-//  KLStateTextField.swift
-//  KinderLink
-//
-//  Created by Wasim on 28/07/22.
-//  Copyright © 2022 Diptesh Patel. All rights reserved.
-//
+
 
 import UIKit
 

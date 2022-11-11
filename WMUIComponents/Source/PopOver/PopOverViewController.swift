@@ -16,6 +16,7 @@ class PopOverViewController: UIViewController {
     @IBOutlet var navItem: UINavigationItem!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var sortOption: UISegmentedControl!
+    @IBOutlet var searchBar: UISearchBar!
     var strTitle:String?
     var arrData:[String] = []
     var popupType: PopupType?
@@ -42,6 +43,8 @@ class PopOverViewController: UIViewController {
     var isAscending : Bool = true
     var titleIs: String = "Select from options"
     var isFullScreen = false
+    var searching = false
+    var searchedData = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +94,10 @@ class PopOverViewController: UIViewController {
             navItem.title = titleIs
         } else {
             
+        }
+        if searchBar != nil {
+            searchBar.delegate = self
+            searchBar.showsCancelButton = true
         }
         
     }
@@ -195,6 +202,7 @@ class PopOverViewController: UIViewController {
     
     // MARK: - Button Clicks
     @IBAction func btnDone_Tapped(_ sender: Any) {
+        searching = false
         if(btnDelete != nil && btnRetake != nil){
             btnRetake.setTitle("Retake", for: .normal)
             btnDelete.setTitle("Delete", for: .normal)
@@ -261,6 +269,9 @@ class PopOverViewController: UIViewController {
 extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
     // MARK: - TableView DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searching {
+            return searchedData.count
+        }
         return arrData.count
     }
     
@@ -268,8 +279,11 @@ extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
         let cellIndentifier:String = "cellIdentifier"
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIndentifier)!
         
-        let stringValue = (arrData.count >  indexPath.row) ? arrData[indexPath.row]  : ""
-        
+        var finalData = arrData
+        if searching {
+            finalData = searchedData
+        }
+       let stringValue = (finalData.count >  indexPath.row) ? finalData[indexPath.row]  : ""
         if isFullScreen == true {
             
             let fullActivity = stringValue.components(separatedBy: " - ")
@@ -289,8 +303,8 @@ extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
         }
         
         if(arrSelectedIndex.count != 0) {
-//            print("CONDITION FAILED : \(arrData.count) :: \(arrSelectedIndex.count) :: \(isAllArray)")
-            if (isAllArray == 1 && ( (arrData.count - 1 ) == arrSelectedIndex.count) ) {
+
+            if (isAllArray == 1 && ( (finalData.count - 1 ) == arrSelectedIndex.count) ) {
                 if indexPath.row == 0 {
                     cell.accessoryType = UITableViewCell.AccessoryType.checkmark
                 } else {
@@ -310,21 +324,27 @@ extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let finalData = arrData
+        var currentIndex = indexPath.row
+        if searching {
+           // finalData = searchedData
+            let selectedValue = searchedData[indexPath.row]
+            currentIndex = arrData.firstIndex(where: {$0 == selectedValue}) ?? indexPath.row
+        }
         
         if isAllArray == 1 {
             
             if(arrSelectedIndex.count != 0){
                 
-                if(arrSelectedIndex.contains(indexPath.row) == true){
+                if(arrSelectedIndex.contains(currentIndex) == true){
                     
                     if (indexPath.row != 0){
-                    
                         if (arrSelectedIndex.contains(0) == true) ||
-                           ( (arrData.count - 1 ) == arrSelectedIndex.count) {
+                           ( (finalData.count - 1 ) == arrSelectedIndex.count) {
                             arrSelectedIndex.removeAll()
-                            arrSelectedIndex.append(indexPath.row)
+                            arrSelectedIndex.append(currentIndex)
                         } else {
-                            if let index = arrSelectedIndex.firstIndex(of: indexPath.row) {
+                            if let index = arrSelectedIndex.firstIndex(of: currentIndex) {
                                 arrSelectedIndex.remove(at: index)
                             }
                         }
@@ -341,21 +361,19 @@ extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
                             arrSelectedIndex.remove(at: index)
                         }
                     }
-                    arrSelectedIndex.append(indexPath.row)
+                    arrSelectedIndex.append(currentIndex)
                 }
             }else{
                 
-                arrSelectedIndex.append(indexPath.row)
+                arrSelectedIndex.append(currentIndex)
             }
             tableView.reloadData()
             
             
         } else if popupType == .singleIndexSelection {
-            self.singleSelectedIndex = indexPath.row
-//            arrSelectedIndex.removeAll()
-//            arrSelectedIndex.append(self.singleSelectedIndex)
+            self.singleSelectedIndex = currentIndex
             if let index = singleSelectedIndex {
-                singleSelectCallBack?(index ,arrData[index])
+                singleSelectCallBack?(index ,finalData[index])
             }
             
             tableView.reloadData()
@@ -363,37 +381,49 @@ extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
             }
         } else if(popupType == .multiSelection){
             if(arrSelectedIndex.count != 0){
-                if(arrSelectedIndex.contains(indexPath.row) == true){
-                    if let index = arrSelectedIndex.firstIndex(of: indexPath.row) {
+                if(arrSelectedIndex.contains(currentIndex) == true){
+                    if let index = arrSelectedIndex.firstIndex(of: currentIndex) {
                         arrSelectedIndex.remove(at: index)
                     }
                 }else{
-                    arrSelectedIndex.append(indexPath.row)
+                    arrSelectedIndex.append(currentIndex)
                 }
             }else{
-                arrSelectedIndex.append(indexPath.row)
+                arrSelectedIndex.append(currentIndex)
             }
             tableView.reloadData()
             
         } else if popupType == .sortView {
             arrSelectedIndex.removeAll()
-            self.singleSelectedIndex = indexPath.row
-            arrSelectedIndex.append(indexPath.row)
+            self.singleSelectedIndex = currentIndex
+            arrSelectedIndex.append(currentIndex)
             tableView.reloadData()
         } else {
             arrSelectedIndex.removeAll()
-            arrSelectedIndex.append(indexPath.row)
+            arrSelectedIndex.append(currentIndex)
             
             var arrValues : [String] = [String]()
             for strid in self.arrSelectedIndex{
-                arrValues.append(self.arrData[strid] )
+                arrValues.append(finalData[strid] )
             }
             multiSelectcallBack?(arrValues)
             self.dismiss(animated: true) { () -> Void in
                 
             }
         }
-        
     }
 
+}
+extension PopOverViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchedData = arrData.filter { $0.lowercased().prefix(searchText.count) == searchText.lowercased() }
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
 }

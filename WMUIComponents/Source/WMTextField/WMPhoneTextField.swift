@@ -1,10 +1,4 @@
-//
-//  KLPhoneTextField.swift
-//  KinderLink
-//
-//  Created by Wasim on 01/08/22.
-//  Copyright © 2022 Diptesh Patel. All rights reserved.
-//
+
 
 import UIKit
 public class WMPhoneTextField: WMTextField {

@@ -1,10 +1,4 @@
-//
-//  KLStates.swift
-//  KinderLink
-//
-//  Created by Wasim on 29/07/22.
-//  Copyright © 2022 Diptesh Patel. All rights reserved.
-//
+
 
 import Foundation
 
@@ -140,7 +134,7 @@ public class USStateHelper {
         return getAllStates().map({$0.name})
     }
     private static func getAllCities() -> NSArray {
-        let bundle = Bundle(for: USStateHelper.self)
+       // let bundle = Bundle(for: USStateHelper.self)
         let frameworkBundle = Bundle(for: WMTextField.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("WMUIComponents.bundle")
         let resourceBundle = Bundle(url: bundleURL!)
