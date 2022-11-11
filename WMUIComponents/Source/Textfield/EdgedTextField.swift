@@ -11,7 +11,7 @@ import UIKit
 public class EdgedTextFiled: UITextField {
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5);
 
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         let border = CALayer()
         let width = CGFloat(2.0)
         border.borderColor =  UIColor.platinum.cgColor
@@ -25,15 +25,15 @@ public class EdgedTextFiled: UITextField {
         self.layer.masksToBounds = true
     }
     
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
+    public override func textRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     
-    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     

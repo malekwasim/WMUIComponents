@@ -35,7 +35,7 @@ public class WMPhoneTextField: WMTextField {
     
 }
 extension WMPhoneTextField: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let str = (textField.text ?? "") as NSString
         var result = str.replacingCharacters(in: range, with: string)
         

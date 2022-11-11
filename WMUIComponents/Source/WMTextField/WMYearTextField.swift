@@ -37,7 +37,7 @@ public class WMYearTextField: WMTextField {
 }
 
 extension WMYearTextField: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.textField.showSingleValueSelectionPopup(self.years,
                                                      selectedIndex: selectedIndex,
                                                      popupMode: .singleIndexSelection,

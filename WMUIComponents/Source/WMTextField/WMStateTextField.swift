@@ -10,25 +10,25 @@ import UIKit
 
 public class WMStateTextField: UIView {
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var txtState: WMTextField!
-    @IBOutlet weak var txtCity: WMTextField!
-    @IBOutlet weak var txtZip: WMTextField!
+    @IBOutlet public weak var txtState: WMTextField!
+    @IBOutlet public  weak var txtCity: WMTextField!
+    @IBOutlet public weak var txtZip: WMTextField!
     var arrState = [USStates]()
     var selectedState = ""
-    var stateID:Int = 0
+    public var stateID:Int = 0
     var arrCity:NSArray!
     var selectedCity = ""
-    var cityID:Int!
+    public var cityID:Int!
     var baseViewController: UIViewController?
     var selectedStateIndex: Int?
     var selectedCityIndex: Int?
-    var isRequired:Bool = false {
+    public var isRequired:Bool = false {
         didSet {
             setRequiredLabel()
         }
     }
     
-    static let defaultSelectedState = KLStateHelper.getNewJerseyState()
+    static let defaultSelectedState = USStateHelper.getNewJerseyState()
     static let defaultSelectedCity = "Bridgewater"
     
     override init(frame: CGRect) {
@@ -42,8 +42,7 @@ public class WMStateTextField: UIView {
     }
     
     func commonInit() {
-        
-        Bundle.main.loadNibNamed("WMStateTextField", owner: self, options: nil)
+        Utility.bundle()?.loadNibNamed("WMStateTextField", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.backgroundColor = self.backgroundColor
@@ -67,7 +66,7 @@ public class WMStateTextField: UIView {
         txtZip.setTextPadtype()
         txtState.setRightView(UIImage(named: "ic_arrow_drop_down"))
         txtCity.setRightView(UIImage(named: "ic_arrow_drop_down"))
-        arrState = KLStateHelper.getAllStates()
+        arrState = USStateHelper.getAllStates()
         selectedState.removeAll()
         selectedCity.removeAll()
         selectedState.append(WMStateTextField.defaultSelectedState.name)
@@ -77,9 +76,9 @@ public class WMStateTextField: UIView {
         selectedCity.append(WMStateTextField.defaultSelectedCity)
         txtCity.setText(WMStateTextField.defaultSelectedCity)
         setupTextField()
-        arrCity = KLStateHelper.getAllCitiesForState(stateID)
+        arrCity = USStateHelper.getAllCitiesForState(stateID)
         setupCities()
-        cityID = KLStateHelper.getIdForCity(WMStateTextField.defaultSelectedCity)
+        cityID = USStateHelper.getIdForCity(WMStateTextField.defaultSelectedCity)
         txtZip.textField.delegate = self
         txtState.textField.delegate = self
     }
@@ -109,7 +108,7 @@ public class WMStateTextField: UIView {
         }
         if stateID != WMStateTextField.defaultSelectedState.stateId {
             txtCity.setText("")
-            arrCity = KLStateHelper.getAllCitiesForState(stateID)
+            arrCity = USStateHelper.getAllCitiesForState(stateID)
         }
     }
     private func setSelectedCity(_ city: String, index: Int) {
@@ -140,17 +139,20 @@ extension WMStateTextField: UITextFieldDelegate {
                                                         setTitle: "Select City")
         return false
     }
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == txtCity.textField {
           return selectCities()
         }
         if textField == txtState.textField {
             setupTextField()
         }
+        if textField == txtZip.textField {
+            return true
+        }
         return false
     }
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == txtZip.textField {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      if textField == txtZip.textField {
             let str = (textField.text ?? "") as NSString
             let result = str.replacingCharacters(in: range, with: string)
             let numbersOnly = NSCharacterSet.init(charactersIn: "0123456789")

@@ -7,7 +7,7 @@ public class BorderdTextView: UITextView,UITextViewDelegate {
     @IBInspectable var borderColor:UIColor = .platinum
     let defaultColor = UIColor.platinum
     @IBInspectable var activeBgColor:UIColor = UIColor.white
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         addBorder(width: 1, radius: 5, color: .platinum)
         self.backgroundColor = activeBgColor
     }
@@ -21,7 +21,7 @@ public class BorderdTextView: UITextView,UITextViewDelegate {
         return newBounds
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    public func textViewDidBeginEditing(_ textView: UITextView) {
         self.backgroundColor = activeBgColor
     }
     

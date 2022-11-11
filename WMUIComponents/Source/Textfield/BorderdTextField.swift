@@ -9,7 +9,7 @@ typealias didIndexSortPoupItem = (_ index:Int, _ value: String, _ isAscending: B
 
 let KEY_DATE_PICKER         = "DatePicker"
 
-class BorderdTextField: UITextField,UITextFieldDelegate {
+public class BorderdTextField: UITextField,UITextFieldDelegate {
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10);
     
     @IBInspectable var borderColor:UIColor = .platinum
@@ -26,9 +26,9 @@ class BorderdTextField: UITextField,UITextFieldDelegate {
     var popupSorted:PopOverViewController?
     var baseVC:UIViewController?
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         self.addBorder(width: 1, radius: 5, color: borderColor)
-        storyBoard = UIStoryboard.init(name: "Popup", bundle: Bundle.main)
+        storyBoard = UIStoryboard.init(name: "Popup", bundle: Utility.bundle())
         popupTableView = storyBoard?.instantiateViewController(withIdentifier: "PopOverViewController_WithTableView") as? PopOverViewController
         
         popupDate = storyBoard?.instantiateViewController(withIdentifier: "PopOverViewController_WithDatePicker") as? PopOverViewController
@@ -38,7 +38,7 @@ class BorderdTextField: UITextField,UITextFieldDelegate {
         
     }
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
     }
     
@@ -75,26 +75,26 @@ class BorderdTextField: UITextField,UITextFieldDelegate {
         
     }
     
-    func showErrorBorder() {
+    public func showErrorBorder() {
         borderColor = UIColor.red
         self.layer.borderColor = borderColor.cgColor
     }
     
-    func hideErrorBorder() {
+    public func hideErrorBorder() {
         borderColor = defaultColor
         self.layer.borderColor = borderColor.cgColor
     }
     
     
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
+    public override func textRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     
-    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     
@@ -109,7 +109,7 @@ class BorderdTextField: UITextField,UITextFieldDelegate {
     
     func showMultiSelectionPopup(_ values:[String], selectedValues:[String],popupMode: PopupType, didSelect:@escaping didMultiSelectPoupItem, setTitle: String? = "Select from options") {
         if storyBoard == nil {
-            storyBoard = UIStoryboard.init(name: "Popup", bundle: Bundle.main)
+            storyBoard = UIStoryboard.init(name: "Popup", bundle: Utility.bundle())
         }
         popupTableView = storyBoard?.instantiateViewController(withIdentifier: "PopOverViewController_WithTableView") as? PopOverViewController
 
@@ -137,7 +137,7 @@ class BorderdTextField: UITextField,UITextFieldDelegate {
                             minimumdatelead:Date? = nil){
         
         if popupDate == nil {
-            storyBoard = UIStoryboard.init(name: "Popup", bundle: Bundle.main)
+            storyBoard = UIStoryboard.init(name: "Popup", bundle: Utility.bundle())
             popupDate = (storyBoard?.instantiateViewController(withIdentifier: "PopOverViewController_WithDatePicker") as! PopOverViewController)
         }
         if minimumDate != nil {
@@ -218,7 +218,7 @@ class BorderdTextField: UITextField,UITextFieldDelegate {
         showPopup(popupSorted)
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         self.backgroundColor = activeBgColor
     }
     @discardableResult
@@ -234,11 +234,11 @@ class BorderdTextField: UITextField,UITextFieldDelegate {
         return popover
     }
     private func showPopup(_ popupOver: PopOverViewController?) {
-       // DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async(execute: {
             if let base = self.baseVC, let popup = popupOver {
                 base.present(popup, animated: true, completion: nil)
             }
-       // })
+        })
         
     }
     

@@ -29,25 +29,30 @@ public class WMTextField: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var textField: BorderdTextField!
-    var textfieldType = WMTextFieldType.text
-    weak var delegate: WMTextFieldDelegate?
+    @IBOutlet public weak var textField: BorderdTextField!
+    public var textfieldType = WMTextFieldType.text
+    weak public var delegate: WMTextFieldDelegate?
+    public var baseVC: UIViewController? {
+        didSet {
+            textField.baseVC = baseVC
+        }
+    }
     @IBInspectable var title: String = "" {
         didSet {
             setupTitle()
         }
     }
-    @IBInspectable var isEnable: Bool = true {
+    @IBInspectable public var isEnable: Bool = true {
         didSet {
             textField.isEnabled = isEnable
         }
     }
-    @IBInspectable var isRequired:Bool = false {
+    @IBInspectable public var isRequired:Bool = false {
         didSet {
             setRequiredLabel()
         }
     }
-    var text: String {
+   public var text: String {
            return textField.text ?? ""
        }
     override init(frame: CGRect) {
@@ -61,7 +66,7 @@ public class WMTextField: UIView {
     }
     
     func commonInit() {
-        Bundle.main.loadNibNamed("WMTextField", owner: self, options: nil)
+        Utility.bundle()?.loadNibNamed("WMTextField", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.backgroundColor = self.backgroundColor
@@ -72,20 +77,20 @@ public class WMTextField: UIView {
     func setEmailKeyboardType() {
         textField.keyboardType = .emailAddress
     }
-    func setTextPadtype() {
+   public func setTextPadtype() {
         textField.keyboardType = .phonePad
     }
     
-    func setupTitle() {
+   public func setupTitle() {
         lblTitle.text = title
         setRequiredLabel()
     }
     
-    func setText(_ text:String?) {
+   public func setText(_ text:String?) {
         textField.text = text
     }
     
-    func setRightView(_ image: UIImage?) {
+    public func setRightView(_ image: UIImage?) {
         if let img = image {
             textField.rightView = UIImageView.init(image: img)
             textField.rightViewMode = UITextField.ViewMode.always
@@ -93,7 +98,7 @@ public class WMTextField: UIView {
        
     }
     
-    func setRequiredLabel() {
+    public func setRequiredLabel() {
         if isRequired == true {
             if var title = lblTitle.text, !title.isEmpty {
                 if title.last != "*" {
@@ -104,7 +109,7 @@ public class WMTextField: UIView {
         }
     }
     
-    func isValid() -> Bool {
+    public func isValid() -> Bool {
         if self.text.count == 0 {
             textField.showErrorBorder()
             return false
@@ -114,7 +119,7 @@ public class WMTextField: UIView {
         }
     }
     
-    func isEmail() -> Bool {
+    public func isEmail() -> Bool {
         if self.text.isEmail == false {
             textField.showErrorBorder()
             return false
@@ -124,7 +129,7 @@ public class WMTextField: UIView {
         }
     }
     
-    func isPhone() -> Bool {
+    public func isPhone() -> Bool {
         if self.text.count < 12 {
             textField.showErrorBorder()
             return false
@@ -134,7 +139,7 @@ public class WMTextField: UIView {
         }
     }
     
-    func getErrorMessage() -> String? {
+    public func getErrorMessage() -> String? {
         if isRequired == false {
             return nil
         }

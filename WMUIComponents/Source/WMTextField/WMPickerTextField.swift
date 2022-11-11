@@ -11,10 +11,10 @@ public protocol WMPickerTextFieldDelegate: AnyObject {
     func pickerDidSelectedAtIndex(_ index: Int, textfield: WMPickerTextField)
 }
 public class WMPickerTextField: WMTextField {
-    var options =  [String]()
-    var selectedIndex = 0
-    var selectedOption = ""
-    weak var pickerDelegate: WMPickerTextFieldDelegate?
+    public  var options =  [String]()
+    public  var selectedIndex = 0
+    public  var selectedOption = ""
+   public weak var pickerDelegate: WMPickerTextFieldDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,19 +27,25 @@ public class WMPickerTextField: WMTextField {
     private func setupTextField() {
         textfieldType = .picker
         setRightView(UIImage(named: "ic_arrow_drop_down"))
-//        self.textField.shouldBegindEditingBlock = { (textField: UITextField?) -> Bool in
-//
-//            self.textField.showSingleValueSelectionPopup(self.options , selectedIndex: self.selectedIndex,
-//                                                         popupMode:KEY_SINGLE_INDEX_SELECTION,
-//                                                         didSelect: {
-//                (index:Int , value: String) in
-//                self.selectedIndex = index
-//                self.selectedOption = self.options[index]
-//                self.setText(self.selectedOption)
-//                self.pickerDelegate?.pickerDidSelectedAtIndex(index, textfield: self)
-//            },isFullscreen: false,setTitle: "")
-//            return false
-//        }
+        textField.delegate = self
     }
 
+}
+extension WMPickerTextField: UITextFieldDelegate {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.textField.showSingleValueSelectionPopup(options,
+                                                     selectedIndex: selectedIndex,
+                                                     popupMode: .singleIndexSelection,
+                                                     didSelect: { (index, value) in
+            
+                                                        self.setSelectedData(index, value: value)
+        }, isFullscreen: false, setTitle: "Select Option")
+        return false
+    }
+    private func setSelectedData(_ index: Int, value: String) {
+        self.textField.text = value
+        self.selectedIndex = index
+        self.pickerDelegate?.pickerDidSelectedAtIndex(index,
+                                                      textfield: self)
+    }
 }

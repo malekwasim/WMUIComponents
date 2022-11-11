@@ -11,18 +11,18 @@ public protocol WMDateTextFieldDelegate: AnyObject {
     func dateDidSelected(_ textfield: WMDateTextField, date: Date)
 }
 public class WMDateTextField: WMTextField {
-    var maximumDate:Date? {
+    public var maximumDate:Date? {
         didSet {
             textField.maximumDate = maximumDate
         }
     }
-    var minimumDate:Date? {
+    public var minimumDate:Date? {
         didSet {
             textField.minimumDate = minimumDate
         }
     }
-    weak var dateDelegate: WMDateTextFieldDelegate?
-    var dateFormat = DateFormat.date_mmddyyy.format
+    public weak var dateDelegate: WMDateTextFieldDelegate?
+    public var dateFormat = DateFormat.date_mmddyyy.format
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupTextField()
@@ -40,7 +40,7 @@ public class WMDateTextField: WMTextField {
 }
 
 extension WMDateTextField: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         var currentDate:Date = Date()
             if((self.text.count ) > 0){
                 currentDate = self.text.dateFromStringDate(self.dateFormat)

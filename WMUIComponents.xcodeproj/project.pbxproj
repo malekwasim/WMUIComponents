@@ -40,6 +40,7 @@
 		9AA05226291AAA7000245C25 /* WMYearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0520B291AAA7000245C25 /* WMYearTextField.swift */; };
 		9AA05227291AAA7000245C25 /* WMStateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0520C291AAA7000245C25 /* WMStateTextField.swift */; };
 		9AA05228291AAA7000245C25 /* WMPhoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0520D291AAA7000245C25 /* WMPhoneTextField.swift */; };
+		9AA0535B291BCC2300245C25 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0535A291BCC2300245C25 /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		9AA0520B291AAA7000245C25 /* WMYearTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMYearTextField.swift; sourceTree = "<group>"; };
 		9AA0520C291AAA7000245C25 /* WMStateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMStateTextField.swift; sourceTree = "<group>"; };
 		9AA0520D291AAA7000245C25 /* WMPhoneTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMPhoneTextField.swift; sourceTree = "<group>"; };
+		9AA0535A291BCC2300245C25 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		9AA051E6291AAA1000245C25 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9AA051FB291AAA7000245C25 /* City.json */,
 				9AA051E8291AAA6100245C25 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -133,11 +136,12 @@
 		9AA051E7291AAA2200245C25 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9AA05359291BCC0300245C25 /* Utility */,
 				9AA051EB291AAA7000245C25 /* Colors */,
 				9AA051ED291AAA7000245C25 /* DateFormat */,
 				9AA051FD291AAA7000245C25 /* ErrorMessages */,
 				9AA051FF291AAA7000245C25 /* Extension */,
-				9AA051FA291AAA7000245C25 /* KLStates */,
+				9AA051FA291AAA7000245C25 /* USStates */,
 				9AA05203291AAA7000245C25 /* WMTextField */,
 				9AA051F7291AAA7000245C25 /* PopOver */,
 				9AA051EF291AAA7000245C25 /* Textfield */,
@@ -184,13 +188,12 @@
 			path = PopOver;
 			sourceTree = "<group>";
 		};
-		9AA051FA291AAA7000245C25 /* KLStates */ = {
+		9AA051FA291AAA7000245C25 /* USStates */ = {
 			isa = PBXGroup;
 			children = (
-				9AA051FB291AAA7000245C25 /* City.json */,
 				9AA051FC291AAA7000245C25 /* USStates.swift */,
 			);
-			path = KLStates;
+			path = USStates;
 			sourceTree = "<group>";
 		};
 		9AA051FD291AAA7000245C25 /* ErrorMessages */ = {
@@ -226,6 +229,14 @@
 				9AA0520D291AAA7000245C25 /* WMPhoneTextField.swift */,
 			);
 			path = WMTextField;
+			sourceTree = "<group>";
+		};
+		9AA05359291BCC0300245C25 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9AA0535A291BCC2300245C25 /* Utility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +334,7 @@
 				9AA0521C291AAA7000245C25 /* UIView.swift in Sources */,
 				9AA05227291AAA7000245C25 /* WMStateTextField.swift in Sources */,
 				9AA05218291AAA7000245C25 /* PopOverViewController.swift in Sources */,
+				9AA0535B291BCC2300245C25 /* Utility.swift in Sources */,
 				9AA0520F291AAA7000245C25 /* DateFormat.swift in Sources */,
 				9AA05228291AAA7000245C25 /* WMPhoneTextField.swift in Sources */,
 				9AA05215291AAA7000245C25 /* BorderdDatePickerTextField.swift in Sources */,

@@ -16,7 +16,7 @@ public struct USStates {
     var countryId: Int = 1
 }
 
-public class KLStateHelper {
+public class USStateHelper {
    private static func createStates() -> [USStates] {
         var states = [USStates]()
         let item1 = USStates(stateId: 1, name: "Alaska", stateCode: "AK")
@@ -140,7 +140,12 @@ public class KLStateHelper {
         return getAllStates().map({$0.name})
     }
     private static func getAllCities() -> NSArray {
-        let path = Bundle.main.path(forResource: "City", ofType: "json")
+        let bundle = Bundle(for: USStateHelper.self)
+        let frameworkBundle = Bundle(for: WMTextField.self)
+        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("WMUIComponents.bundle")
+        let resourceBundle = Bundle(url: bundleURL!)
+
+        let path = resourceBundle?.path(forResource: "City", ofType: "json")
         let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path!))
         let  jsonResult =  try! JSONSerialization.jsonObject(with: jsonData!, options: []) as? NSDictionary
         let  arrCity = (jsonResult?.value(forKey: "Data") as! NSArray)
