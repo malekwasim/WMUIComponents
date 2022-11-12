@@ -31,7 +31,7 @@ public class WMTextField: UIView {
             textField.baseVC = baseVC
         }
     }
-    @IBInspectable var title: String = "" {
+    @IBInspectable public var title: String = "" {
         didSet {
             setupTitle()
         }
@@ -68,7 +68,7 @@ public class WMTextField: UIView {
         //textField.delegate = self
         lblTitle.adjustsFontSizeToFitWidth = true
     }
-    func setEmailKeyboardType() {
+   public func setEmailKeyboardType() {
         textField.keyboardType = .emailAddress
     }
    public func setTextPadtype() {

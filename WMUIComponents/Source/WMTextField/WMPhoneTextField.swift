@@ -2,7 +2,7 @@
 
 import UIKit
 public class WMPhoneTextField: WMTextField {
-    var isSSN = false
+   public var isSSN = false
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

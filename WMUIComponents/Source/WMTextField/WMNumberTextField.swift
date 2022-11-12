@@ -8,7 +8,7 @@
 
 import UIKit
 public class WMNumberTextField: WMTextField {
-    var maxDigit = 0
+   public var maxDigit = 0
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -24,19 +24,22 @@ public class WMNumberTextField: WMTextField {
     private func setupPhoneTextField() {
         self.textfieldType = .number
         setTextPadtype()
-//        self.textField.shouldChangeCharactersInRangeBlock = { (textField:UITextField?, range:NSRange, string:String?) -> Bool in
-//            let str = (textField?.text ?? "") as NSString
-//            let result = str.replacingCharacters(in: range, with: string!)
-//            let numbersOnly = NSCharacterSet.init(charactersIn: "0123456789")
-//            let textFieldChars = NSCharacterSet.init(charactersIn: result)
-//            
-//            if !numbersOnly.isSuperset(of: textFieldChars as CharacterSet) {
-//                return false
-//            }
-//            textField?.text = result.formatString([self.maxDigit], seprator: "")
-//            return false
-//        }
+        textField.delegate = self
     }
     
+}
+extension WMNumberTextField: UITextFieldDelegate {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let str = (textField.text ?? "") as NSString
+        let result = str.replacingCharacters(in: range, with: string)
+        let numbersOnly = NSCharacterSet.init(charactersIn: "0123456789")
+        let textFieldChars = NSCharacterSet.init(charactersIn: result)
+        
+        if !numbersOnly.isSuperset(of: textFieldChars as CharacterSet) {
+            return false
+        }
+        textField.text = result.formatString([maxDigit], seprator: "")
+        return false
+    }
 }
 

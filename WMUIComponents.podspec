@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'WMUIComponents'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'Common UI Components'
 
   s.description      = <<-DESC
