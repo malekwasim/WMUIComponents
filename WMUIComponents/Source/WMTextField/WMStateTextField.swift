@@ -23,7 +23,7 @@ public class WMStateTextField: UIView {
     }
     
     static let defaultSelectedState = USStateHelper.getNewJerseyState()
-    static let defaultSelectedCity = "Bridgewater"
+   // static let defaultSelectedCity = "Bridgewater"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,12 +67,12 @@ public class WMStateTextField: UIView {
         stateID = WMStateTextField.defaultSelectedState.stateId
         selectedState = WMStateTextField.defaultSelectedState.name
         txtState?.setText(selectedState)
-        selectedCity.append(WMStateTextField.defaultSelectedCity)
-        txtCity.setText(WMStateTextField.defaultSelectedCity)
+       // selectedCity.append(WMStateTextField.defaultSelectedCity)
+      //  txtCity.setText(WMStateTextField.defaultSelectedCity)
         setupTextField()
         arrCity = USStateHelper.getAllCitiesForState(stateID)
         setupCities()
-        cityID = USStateHelper.getIdForCity(WMStateTextField.defaultSelectedCity)
+      //  cityID = USStateHelper.getIdForCity(WMStateTextField.defaultSelectedCity)
         txtZip.textField.delegate = self
         txtState.textField.delegate = self
     }

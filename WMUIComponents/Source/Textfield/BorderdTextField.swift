@@ -15,11 +15,11 @@ public class BorderdTextField: UITextField,UITextFieldDelegate {
     @IBInspectable var borderColor:UIColor = .platinum
     @IBInspectable var activeBgColor:UIColor = UIColor.white
     
-    let defaultColor = UIColor.platinum
-    var minimumDate : Date? = nil
-    var maximumDate : Date? = nil
-    var startTime : Date? = nil
-    var endTime : Date? = nil
+    public let defaultColor = UIColor.platinum
+    public var minimumDate : Date? = nil
+    public var maximumDate : Date? = nil
+   public var startTime : Date? = nil
+    public var endTime : Date? = nil
     var storyBoard:UIStoryboard?
     var popupTableView:PopOverViewController?
     var popupDate:PopOverViewController?

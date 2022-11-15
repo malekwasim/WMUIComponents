@@ -11,13 +11,18 @@ public enum PopupType {
 
 class PopOverViewController: UIViewController {
     
+    //MARK: - Outlets
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var btnDone: UIButton!
     @IBOutlet var navItem: UINavigationItem!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var sortOption: UISegmentedControl!
     @IBOutlet var searchBar: UISearchBar!
-    var strTitle:String?
+    @IBOutlet var datePickerView: UIDatePicker!
+    @IBOutlet var btnRetake: UIButton!
+    @IBOutlet var btnDelete: UIButton!
+    
+    //MARK - Properties
     var arrData:[String] = []
     var popupType: PopupType?
     var arrSelectedIndex:[Int] = [Int]()
@@ -30,16 +35,10 @@ class PopOverViewController: UIViewController {
     var isAllArray : Int = 0
     var minimumDate : Date? = nil
     var maximumDate : Date? = nil
-    var pickerMode:UIDatePicker.Mode!
-    var currentDate:Date!
-    var startTime: Date!
-    var endTime: Date!
+    var pickerMode:UIDatePicker.Mode = .date
+    var currentDate:Date?
     var minuteInterval: Int = 0
     var skipWeekEnds: Bool = false
-    @IBOutlet var datePickerView: UIDatePicker!
-    var image:UIImage!
-    @IBOutlet var btnRetake: UIButton!
-    @IBOutlet var btnDelete: UIButton!
     var isAscending : Bool = true
     var titleIs: String = "Select from options"
     var isFullScreen = false
@@ -77,7 +76,10 @@ class PopOverViewController: UIViewController {
             if #available(iOS 14, *) {
                 datePickerView.preferredDatePickerStyle = .wheels
             }
-            datePickerView.setDate(currentDate, animated: true)
+            if let date = currentDate {
+                datePickerView.setDate(date, animated: true)
+            }
+            
         } else if popupType == .sortView {
             if isAscending == true {
                 self.sortOption.selectedSegmentIndex = 0

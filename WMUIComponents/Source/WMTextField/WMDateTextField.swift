@@ -21,6 +21,7 @@ public class WMDateTextField: WMTextField {
             textField.minimumDate = minimumDate
         }
     }
+    public var datePickerMode = UIDatePicker.Mode.date
     public weak var dateDelegate: WMDateTextFieldDelegate?
     public var dateFormat = DateFormat.date_mmddyyy.format
     override init(frame: CGRect) {
@@ -46,7 +47,7 @@ extension WMDateTextField: UITextFieldDelegate {
                 currentDate = self.text.dateFromStringDate(self.dateFormat)
             }
 
-            self.textField.showDatePickerView(.date,
+            self.textField.showDatePickerView(datePickerMode,
                                               minuteInterval: 1 ,
                                               currentDate: currentDate,
                                               didSelect: { (strdate:String,date:Date) in
