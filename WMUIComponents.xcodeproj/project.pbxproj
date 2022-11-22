@@ -15,13 +15,9 @@
 		9AA051E9291AAA6100245C25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051E8291AAA6100245C25 /* Assets.xcassets */; };
 		9AA0520E291AAA7000245C25 /* WMColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051EC291AAA7000245C25 /* WMColors.swift */; };
 		9AA0520F291AAA7000245C25 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051EE291AAA7000245C25 /* DateFormat.swift */; };
-		9AA05210291AAA7000245C25 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F0291AAA7000245C25 /* PickerTextField.swift */; };
-		9AA05211291AAA7000245C25 /* BorderdPickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F1291AAA7000245C25 /* BorderdPickerTextField.swift */; };
 		9AA05212291AAA7000245C25 /* EdgedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F2291AAA7000245C25 /* EdgedTextField.swift */; };
 		9AA05213291AAA7000245C25 /* BorderdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F3291AAA7000245C25 /* BorderdTextField.swift */; };
 		9AA05214291AAA7000245C25 /* BorderdTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F4291AAA7000245C25 /* BorderdTextView.swift */; };
-		9AA05215291AAA7000245C25 /* BorderdDatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F5291AAA7000245C25 /* BorderdDatePickerTextField.swift */; };
-		9AA05216291AAA7000245C25 /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F6291AAA7000245C25 /* DatePickerTextField.swift */; };
 		9AA05217291AAA7000245C25 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051F8291AAA7000245C25 /* Popup.storyboard */; };
 		9AA05218291AAA7000245C25 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA051F9291AAA7000245C25 /* PopOverViewController.swift */; };
 		9AA05219291AAA7000245C25 /* City.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AA051FB291AAA7000245C25 /* City.json */; };
@@ -54,13 +50,9 @@
 		9AA051E8291AAA6100245C25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AA051EC291AAA7000245C25 /* WMColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMColors.swift; sourceTree = "<group>"; };
 		9AA051EE291AAA7000245C25 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
-		9AA051F0291AAA7000245C25 /* PickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
-		9AA051F1291AAA7000245C25 /* BorderdPickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderdPickerTextField.swift; sourceTree = "<group>"; };
 		9AA051F2291AAA7000245C25 /* EdgedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgedTextField.swift; sourceTree = "<group>"; };
 		9AA051F3291AAA7000245C25 /* BorderdTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderdTextField.swift; sourceTree = "<group>"; };
 		9AA051F4291AAA7000245C25 /* BorderdTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderdTextView.swift; sourceTree = "<group>"; };
-		9AA051F5291AAA7000245C25 /* BorderdDatePickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderdDatePickerTextField.swift; sourceTree = "<group>"; };
-		9AA051F6291AAA7000245C25 /* DatePickerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
 		9AA051F8291AAA7000245C25 /* Popup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 		9AA051F9291AAA7000245C25 /* PopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 		9AA051FB291AAA7000245C25 /* City.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = City.json; sourceTree = "<group>"; };
@@ -168,13 +160,9 @@
 		9AA051EF291AAA7000245C25 /* Textfield */ = {
 			isa = PBXGroup;
 			children = (
-				9AA051F0291AAA7000245C25 /* PickerTextField.swift */,
-				9AA051F1291AAA7000245C25 /* BorderdPickerTextField.swift */,
 				9AA051F2291AAA7000245C25 /* EdgedTextField.swift */,
 				9AA051F3291AAA7000245C25 /* BorderdTextField.swift */,
 				9AA051F4291AAA7000245C25 /* BorderdTextView.swift */,
-				9AA051F5291AAA7000245C25 /* BorderdDatePickerTextField.swift */,
-				9AA051F6291AAA7000245C25 /* DatePickerTextField.swift */,
 			);
 			path = Textfield;
 			sourceTree = "<group>";
@@ -315,16 +303,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AA0521B291AAA7000245C25 /* ErrorMessages.swift in Sources */,
-				9AA05211291AAA7000245C25 /* BorderdPickerTextField.swift in Sources */,
 				9AA05225291AAA7000245C25 /* WMTextField.swift in Sources */,
 				9AA05226291AAA7000245C25 /* WMYearTextField.swift in Sources */,
 				9AA0521E291AAA7000245C25 /* UILable.swift in Sources */,
 				9AA05222291AAA7000245C25 /* WMNumberTextField.swift in Sources */,
 				9AA05214291AAA7000245C25 /* BorderdTextView.swift in Sources */,
-				9AA05216291AAA7000245C25 /* DatePickerTextField.swift in Sources */,
 				9AA05212291AAA7000245C25 /* EdgedTextField.swift in Sources */,
 				9AA0520E291AAA7000245C25 /* WMColors.swift in Sources */,
-				9AA05210291AAA7000245C25 /* PickerTextField.swift in Sources */,
 				9AA0521A291AAA7000245C25 /* USStates.swift in Sources */,
 				9AA05224291AAA7000245C25 /* WMPickerTextField.swift in Sources */,
 				9AA05213291AAA7000245C25 /* BorderdTextField.swift in Sources */,
@@ -337,7 +322,6 @@
 				9AA0535B291BCC2300245C25 /* Utility.swift in Sources */,
 				9AA0520F291AAA7000245C25 /* DateFormat.swift in Sources */,
 				9AA05228291AAA7000245C25 /* WMPhoneTextField.swift in Sources */,
-				9AA05215291AAA7000245C25 /* BorderdDatePickerTextField.swift in Sources */,
 				9AA0521D291AAA7000245C25 /* String.swift in Sources */,
 				9AA051D1291AA9B100245C25 /* AppDelegate.swift in Sources */,
 			);

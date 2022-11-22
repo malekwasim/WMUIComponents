@@ -3,7 +3,7 @@
 import UIKit
 
 typealias didSelectedDate = (_ strdate:String,_ date:Date) -> Void
-typealias didMultiSelectPoupItem = (_ values:[String]) -> Void
+typealias didMultiSelectPoupItem = (_ indexes:[Int]) -> Void
 typealias didIndexSelectPoupItem = (_ index:Int, _ value: String) -> Void
 typealias didIndexSortPoupItem = (_ index:Int, _ value: String, _ isAscending: Bool) -> Void
 
@@ -107,7 +107,11 @@ public class BorderdTextField: UITextField,UITextFieldDelegate {
         return newBounds
     }
     
-    func showMultiSelectionPopup(_ values:[String], selectedValues:[String],popupMode: PopupType, didSelect:@escaping didMultiSelectPoupItem, setTitle: String? = "Select from options") {
+    func showMultiSelectionPopup(_ values:[String],
+                                 selectedValues:[Int],
+                                 popupMode: PopupType,
+                                 didSelect:@escaping didMultiSelectPoupItem,
+                                 setTitle: String? = "Select from options") {
         if storyBoard == nil {
             storyBoard = UIStoryboard.init(name: "Popup", bundle: Utility.bundle())
         }
@@ -118,7 +122,12 @@ public class BorderdTextField: UITextField,UITextFieldDelegate {
         if(allContainedArray.count > 0){
             intAll = 1
         }
-        popupTableView?.showMultiSelectionPopup(values, selectedValues: selectedValues,popupMode:popupMode, isAll: intAll , callBack: didSelect,setTitle: setTitle!)
+        popupTableView?.showMultiSelectionPopup(values,
+                                                selectedValues: selectedValues,
+                                                popupMode:popupMode,
+                                                isAll: intAll,
+                                                callBack: didSelect,
+                                                setTitle: setTitle!)
         
         let popover = setupPopupPresentation(popupTableView)
         

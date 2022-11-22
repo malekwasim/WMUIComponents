@@ -126,7 +126,12 @@ class PopOverViewController: UIViewController {
     }
     
     //MARK: Show multi selection popup
-    func showMultiSelectionPopup(_ arrData:[String], selectedValues:[String], popupMode:PopupType, isAll: Int = 0 , callBack: @escaping didMultiSelectPoupItem,setTitle: String? = "Select from options") {
+    func showMultiSelectionPopup(_ arrData:[String],
+                                 selectedValues:[Int],
+                                 popupMode:PopupType,
+                                 isAll: Int = 0,
+                                 callBack: @escaping didMultiSelectPoupItem,
+                                 setTitle: String? = "Select from options") {
         multiSelectcallBack = callBack
         
         titleIs = setTitle!
@@ -139,14 +144,7 @@ class PopOverViewController: UIViewController {
         
         if arrData.count > 0 {
             if selectedValues.count > 0 {
-                for strvalue in selectedValues{
-                    if let index = arrData.firstIndex(of: strvalue) {// Added due to crash found in Crashlytics
-                        if self.arrSelectedIndex.isEmpty {// Added due to found crash in Crashlytics
-                            self.arrSelectedIndex = [Int]()
-                        }
-                        self.arrSelectedIndex.append(index)
-                    }
-                }
+                arrSelectedIndex = selectedValues
             }
         }
         
@@ -218,7 +216,7 @@ class PopOverViewController: UIViewController {
             for strid in self.arrSelectedIndex{
                 arrValues.append(self.arrData[strid] )
             }
-            multiSelectcallBack?(arrValues)
+            multiSelectcallBack?(arrSelectedIndex)
             
         }else if(popupType == .datePicker){
             let formatter:DateFormatter = DateFormatter.init()
@@ -404,11 +402,7 @@ extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
             arrSelectedIndex.removeAll()
             arrSelectedIndex.append(currentIndex)
             
-            var arrValues : [String] = [String]()
-            for strid in self.arrSelectedIndex{
-                arrValues.append(finalData[strid] )
-            }
-            multiSelectcallBack?(arrValues)
+            multiSelectcallBack?(arrSelectedIndex)
             self.dismiss(animated: true) { () -> Void in
                 
             }
