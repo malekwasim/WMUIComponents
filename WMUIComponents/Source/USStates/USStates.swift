@@ -138,11 +138,13 @@ public class USStateHelper {
         let frameworkBundle = Bundle(for: WMTextField.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("WMUIComponents.bundle")
         let resourceBundle = Bundle(url: bundleURL!)
-
-        let path = resourceBundle?.path(forResource: "City", ofType: "json")
-        let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path!))
-        let  jsonResult =  try! JSONSerialization.jsonObject(with: jsonData!, options: []) as? NSDictionary
-        let  arrCity = (jsonResult?.value(forKey: "Data") as! NSArray)
+        var arrCity = NSArray()
+        if let path = resourceBundle?.path(forResource: "City", ofType: "json") {
+            let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path))
+            let  jsonResult =  try! JSONSerialization.jsonObject(with: jsonData!, options: []) as? NSDictionary
+            arrCity = (jsonResult?.value(forKey: "Data") as! NSArray)
+        }
+       
         return arrCity
     }
     static func getAllCitiesForState(_ stateId: Int) -> NSArray {
