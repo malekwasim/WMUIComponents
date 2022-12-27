@@ -21,10 +21,12 @@ class PopOverViewController: UIViewController {
     @IBOutlet var datePickerView: UIDatePicker!
     @IBOutlet var btnRetake: UIButton!
     @IBOutlet var btnDelete: UIButton!
+    @IBOutlet var btnSelectAll: UIButton!
     
     //MARK - Properties
     var arrData:[String] = []
     var popupType: PopupType?
+    var arrSearchedSelectedIndex = [Int]()
     var arrSelectedIndex:[Int] = [Int]()
     var arrSelectedData:[String] = [String]()
     var singleSelectedIndex: Int?
@@ -32,7 +34,6 @@ class PopOverViewController: UIViewController {
     var selectedDateCallBack:didSelectedDate?
     var singleSelectCallBack:didIndexSelectPoupItem?
     var sortSelectCallBack:didIndexSortPoupItem?
-    var isAllArray : Int = 0
     var minimumDate : Date? = nil
     var maximumDate : Date? = nil
     var pickerMode:UIDatePicker.Mode = .date
@@ -53,7 +54,7 @@ class PopOverViewController: UIViewController {
     
     //MARK: setupView
     func setupView(){
-        
+        btnSelectAll.isHidden = true
         if(popupType == .datePicker) {
             datePickerView?.datePickerMode = pickerMode
             datePickerView?.minuteInterval = self.minuteInterval
@@ -91,6 +92,11 @@ class PopOverViewController: UIViewController {
 //            print("3_setTitle: \(titleIs)")
             navItem.title = titleIs
         } else if (popupType == .multiSelection) {
+            btnSelectAll.isHidden = false
+            btnSelectAll.setTitle("Select All", for: .normal)
+            if isAllDataSelected() {
+                btnSelectAll.setTitle("Remove All", for: .normal)
+            }
             navItem.title = titleIs
         } else if popupType == .singleIndexSelection{
             navItem.title = titleIs
@@ -129,7 +135,6 @@ class PopOverViewController: UIViewController {
     func showMultiSelectionPopup(_ arrData:[String],
                                  selectedValues:[Int],
                                  popupMode:PopupType,
-                                 isAll: Int = 0,
                                  callBack: @escaping didMultiSelectPoupItem,
                                  setTitle: String? = "Select from options") {
         multiSelectcallBack = callBack
@@ -140,7 +145,6 @@ class PopOverViewController: UIViewController {
         
         self.arrData = arrData
         popupType = popupMode
-        self.isAllArray = isAll
         
         if arrData.count > 0 {
             if selectedValues.count > 0 {
@@ -212,11 +216,7 @@ class PopOverViewController: UIViewController {
         }
         
         if(popupType == .multiSelection){
-            var arrValues : [String] = [String]()
-            for strid in self.arrSelectedIndex{
-                arrValues.append(self.arrData[strid] )
-            }
-            multiSelectcallBack?(arrSelectedIndex)
+            setMultiSelectCallback()
             
         }else if(popupType == .datePicker){
             let formatter:DateFormatter = DateFormatter.init()
@@ -253,6 +253,30 @@ class PopOverViewController: UIViewController {
         }
         
         self.dismiss(animated: true) { () -> Void in}
+    }
+    private func setMultiSelectCallback() {
+        var arrValues : [String] = [String]()
+        for strid in self.arrSelectedIndex{
+            arrValues.append(self.arrData[strid] )
+        }
+        multiSelectcallBack?(arrSelectedIndex)
+    }
+    
+    @IBAction func btnSelectAll_Tapped(_ sender: UIButton) {
+        if isAllDataSelected() {
+            //all data are selected then remove
+            arrSelectedIndex.removeAll()
+        } else {
+            arrSelectedIndex.removeAll()
+            for (index, _) in arrData.enumerated() {
+                arrSelectedIndex.append(index)
+            }
+        }
+        multiSelectcallBack?(arrSelectedIndex)
+        dismiss(animated: true)
+    }
+    private func isAllDataSelected() -> Bool {
+        return arrSelectedIndex.count == arrData.count
     }
     
     
@@ -301,24 +325,17 @@ extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.textLabel?.text = stringValue
         }
-        
+        cell.accessoryType = .none
         if(arrSelectedIndex.count != 0) {
-
-            if (isAllArray == 1 && ( (finalData.count - 1 ) == arrSelectedIndex.count) ) {
-                if indexPath.row == 0 {
-                    cell.accessoryType = UITableViewCell.AccessoryType.checkmark
-                } else {
-                    cell.accessoryType = UITableViewCell.AccessoryType.none
-                }
-                
-            } else
              if(arrSelectedIndex.contains(indexPath.row) == true){
-                cell.accessoryType = UITableViewCell.AccessoryType.checkmark
-             }else{
-                cell.accessoryType = UITableViewCell.AccessoryType.none
+                cell.accessoryType = .checkmark
              }
-        }else{
-            cell.accessoryType = UITableViewCell.AccessoryType.none
+        }
+        
+        if searching  {
+            if arrSearchedSelectedIndex.contains(indexPath.row) {
+                cell.accessoryType = .checkmark
+            }
         }
         
         return cell
@@ -327,50 +344,18 @@ extension PopOverViewController : UITableViewDelegate, UITableViewDataSource {
         let finalData = arrData
         var currentIndex = indexPath.row
         if searching {
-           // finalData = searchedData
             let selectedValue = searchedData[indexPath.row]
+            if arrSearchedSelectedIndex.contains(indexPath.row) {
+                if let index = arrSearchedSelectedIndex.firstIndex(of: indexPath.row) {
+                    arrSearchedSelectedIndex.remove(at: index)
+                }
+            } else {
+                arrSearchedSelectedIndex.append(indexPath.row)
+            }
             currentIndex = arrData.firstIndex(where: {$0 == selectedValue}) ?? indexPath.row
         }
         
-        if isAllArray == 1 {
-            
-            if(arrSelectedIndex.count != 0){
-                
-                if(arrSelectedIndex.contains(currentIndex) == true){
-                    
-                    if (indexPath.row != 0){
-                        if (arrSelectedIndex.contains(0) == true) ||
-                           ( (finalData.count - 1 ) == arrSelectedIndex.count) {
-                            arrSelectedIndex.removeAll()
-                            arrSelectedIndex.append(currentIndex)
-                        } else {
-                            if let index = arrSelectedIndex.firstIndex(of: currentIndex) {
-                                arrSelectedIndex.remove(at: index)
-                            }
-                        }
-                    } else {
-                        // This means only All selected and Deselected so remove all
-                        arrSelectedIndex.removeAll()
-                    }
-                    
-                }else{
-                    if (indexPath.row == 0) {
-                        arrSelectedIndex.removeAll()
-                    } else if (arrSelectedIndex.contains(0) == true) {
-                        if let index = arrSelectedIndex.firstIndex(of: 0) {
-                            arrSelectedIndex.remove(at: index)
-                        }
-                    }
-                    arrSelectedIndex.append(currentIndex)
-                }
-            }else{
-                
-                arrSelectedIndex.append(currentIndex)
-            }
-            tableView.reloadData()
-            
-            
-        } else if popupType == .singleIndexSelection {
+        if popupType == .singleIndexSelection {
             self.singleSelectedIndex = currentIndex
             if let index = singleSelectedIndex {
                 singleSelectCallBack?(index ,finalData[index])

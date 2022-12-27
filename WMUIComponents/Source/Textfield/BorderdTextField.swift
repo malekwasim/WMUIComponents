@@ -117,15 +117,9 @@ public class BorderdTextField: UITextField,UITextFieldDelegate {
         }
         popupTableView = storyBoard?.instantiateViewController(withIdentifier: "PopOverViewController_WithTableView") as? PopOverViewController
 
-        var intAll = 0;
-        let allContainedArray = values.filter(){ $0 == "All" }
-        if(allContainedArray.count > 0){
-            intAll = 1
-        }
         popupTableView?.showMultiSelectionPopup(values,
                                                 selectedValues: selectedValues,
                                                 popupMode:popupMode,
-                                                isAll: intAll,
                                                 callBack: didSelect,
                                                 setTitle: setTitle!)
         
@@ -195,19 +189,7 @@ public class BorderdTextField: UITextField,UITextFieldDelegate {
             popover?.sourceRect = CGRect.init(x: 0, y: 0, width: width , height: self.frame.size.height)
             popupTableView?.isFullScreen = false
         }
-        
-        if self.isModal() == false {
-            showPopup(popupTableView)
-        }
-        
-    }
-    
-    func isModal() -> Bool {
-        guard let basevc = baseVC else {
-            return false
-        }
-        return basevc.presentingViewController?.presentedViewController == basevc
-            || (basevc.navigationController != nil && basevc.navigationController?.presentingViewController?.presentedViewController == basevc.navigationController)
+        showPopup(popupTableView)
     }
     
     func showSortValueSelectionPopup(_ values:[String], selectedIndex:Int,popupMode: PopupType, isAscending : Bool, didSelect:@escaping didIndexSortPoupItem) {

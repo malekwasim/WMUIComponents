@@ -37,6 +37,12 @@ public class WMPickerTextField: WMTextField {
         setRightView(UIImage(named: "ic_arrow_drop_down"))
         textField.delegate = self
     }
+    public func resetSelection() {
+       if popupType == .multiSelection {
+            multiSelectedIndexes.removeAll()
+            textField.text = ""
+        }
+    }
 
 }
 extension WMPickerTextField: UITextFieldDelegate {
@@ -72,6 +78,9 @@ extension WMPickerTextField: UITextFieldDelegate {
     }
     private func setMultiSelectData(_ indexes: [Int]) {
         multiSelectedIndexes = indexes
+        if multiSelectedIndexes.count == 0 {
+            textField.text = ""
+        }
         if multiSelectedIndexes.count >= 1 {
             let firstindex = multiSelectedIndexes[0]
             let first = options[firstindex]

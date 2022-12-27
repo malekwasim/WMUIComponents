@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -71,33 +72,51 @@
                                     <outlet property="delegate" destination="Ril-5W-3Ix" id="IFp-gD-kc8"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXB-wZ-BI5">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rkV-Eh-OJU">
                                 <rect key="frame" x="0.0" y="300" width="500" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="qqn-Oa-e0W"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="22"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="btnDone_Tapped:" destination="Ril-5W-3Ix" eventType="touchUpInside" id="fzb-NU-WEx"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXB-wZ-BI5">
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="qqn-Oa-e0W"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="22"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="btnDone_Tapped:" destination="Ril-5W-3Ix" eventType="touchUpInside" id="fzb-NU-WEx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knb-zA-t9B">
+                                        <rect key="frame" x="254" y="0.0" width="246" height="50"/>
+                                        <color key="backgroundColor" name="cancelRed"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Yn3-dm-yVj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="22"/>
+                                        <state key="normal" title="Select All"/>
+                                        <state key="selected" title="Remove All"/>
+                                        <connections>
+                                            <action selector="btnSelectAll_Tapped:" destination="Ril-5W-3Ix" eventType="touchUpInside" id="mhX-sy-pwj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CXB-wZ-BI5" firstAttribute="top" secondItem="Xkg-mq-o6Q" secondAttribute="bottom" id="1qz-gh-iei"/>
                             <constraint firstItem="Xkg-mq-o6Q" firstAttribute="top" secondItem="oXw-pz-9H8" secondAttribute="bottom" id="4eY-tZ-wty"/>
                             <constraint firstItem="Xkg-mq-o6Q" firstAttribute="leading" secondItem="hg4-SX-hmR" secondAttribute="leading" id="5Z2-d7-Jt3"/>
                             <constraint firstAttribute="trailing" secondItem="JRI-Q2-VQ2" secondAttribute="trailing" id="7DN-5s-XyG"/>
                             <constraint firstAttribute="trailing" secondItem="oXw-pz-9H8" secondAttribute="trailing" id="ACX-pP-5pi"/>
                             <constraint firstAttribute="trailing" secondItem="Xkg-mq-o6Q" secondAttribute="trailing" id="Jil-Xn-lTs"/>
-                            <constraint firstItem="CXB-wZ-BI5" firstAttribute="leading" secondItem="hg4-SX-hmR" secondAttribute="leading" id="OQ7-fJ-TUt"/>
-                            <constraint firstAttribute="trailing" secondItem="CXB-wZ-BI5" secondAttribute="trailing" id="UdB-AD-gfz"/>
+                            <constraint firstItem="jqp-b4-Rqz" firstAttribute="top" secondItem="rkV-Eh-OJU" secondAttribute="bottom" id="KvV-l5-D2j"/>
                             <constraint firstItem="oXw-pz-9H8" firstAttribute="leading" secondItem="hg4-SX-hmR" secondAttribute="leading" id="W2y-vY-Gak"/>
+                            <constraint firstAttribute="trailing" secondItem="rkV-Eh-OJU" secondAttribute="trailing" id="ZTS-hH-dUW"/>
                             <constraint firstItem="JRI-Q2-VQ2" firstAttribute="top" secondItem="hg4-SX-hmR" secondAttribute="top" id="bss-oD-rHB"/>
                             <constraint firstItem="JRI-Q2-VQ2" firstAttribute="leading" secondItem="hg4-SX-hmR" secondAttribute="leading" id="drL-0Z-psx"/>
-                            <constraint firstItem="jqp-b4-Rqz" firstAttribute="top" secondItem="CXB-wZ-BI5" secondAttribute="bottom" id="f4u-b6-NKM"/>
+                            <constraint firstItem="rkV-Eh-OJU" firstAttribute="leading" secondItem="hg4-SX-hmR" secondAttribute="leading" id="r5x-bc-jsK"/>
+                            <constraint firstItem="rkV-Eh-OJU" firstAttribute="top" secondItem="Xkg-mq-o6Q" secondAttribute="bottom" id="xBZ-F8-YkO"/>
                             <constraint firstItem="oXw-pz-9H8" firstAttribute="top" secondItem="JRI-Q2-VQ2" secondAttribute="bottom" id="yKC-RF-ou4"/>
                         </constraints>
                     </view>
@@ -105,6 +124,7 @@
                     <size key="freeformSize" width="500" height="350"/>
                     <connections>
                         <outlet property="btnDone" destination="CXB-wZ-BI5" id="gDd-bX-Uka"/>
+                        <outlet property="btnSelectAll" destination="knb-zA-t9B" id="ZOe-JH-vpp"/>
                         <outlet property="navItem" destination="tTS-oX-zyS" id="1o3-mz-avc"/>
                         <outlet property="searchBar" destination="oXw-pz-9H8" id="mim-EP-4A3"/>
                         <outlet property="tableView" destination="Xkg-mq-o6Q" id="snn-Dl-Mj4"/>
@@ -415,4 +435,9 @@
             <point key="canvasLocation" x="6592.96875" y="4032.4218749999995"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="cancelRed">
+            <color red="0.89399999380111694" green="0.17599999904632568" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
