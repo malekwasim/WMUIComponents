@@ -54,7 +54,9 @@ class PopOverViewController: UIViewController {
     
     //MARK: setupView
     func setupView(){
-        btnSelectAll.isHidden = true
+        if btnSelectAll != nil {
+            btnSelectAll.isHidden = true
+        }
         if(popupType == .datePicker) {
             datePickerView?.datePickerMode = pickerMode
             datePickerView?.minuteInterval = self.minuteInterval
